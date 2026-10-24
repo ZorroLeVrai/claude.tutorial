@@ -157,6 +157,7 @@ You can create
 To get notifications on VSCode, you might install the following Open-Source plugin
 - agent-notifications
   - https://github.com/777genius/agent-notifications
+  - https://agent-notifications.com/#install
 
 ## Claude Main Commands
 
@@ -199,5 +200,3 @@ If you want to start Claude with the previous context, type
 /usage to check the usage if you have a subscription
 
 /terminal-setup Install Shift+Enter binding for multiline requests
-
-!!!NEXT: 14- Adding skills
