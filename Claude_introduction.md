@@ -208,6 +208,7 @@ If you want to start Claude with the previous context, type
 /model select Claude model
 /init create the memory file CLAUDE.md
 /mcp to access all installed MCP
+/plugin to manage plugins
 /btw to ask side questions
 /skills to see all available skills
 /agents to manage sub-agents
