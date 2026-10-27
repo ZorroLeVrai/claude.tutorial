@@ -1,3 +1,31 @@
+## Configuration
+Claude configuration and tooling is put in the %HOMEPATH% folder.
+
+Claude Code installs/stores everything under there in two places:
+
+**`%USERPROFILE%\.claude.json`** (+ `.claude.json.backup`)
+Global config file — account/session info, project list, MCP server registrations, etc.
+
+**`%USERPROFILE%\.claude\`** — the main data directory, containing:
+| Folder/file | Purpose |
+|---|---|
+| `settings.json` | User-level settings (permissions, env vars, hooks config) |
+| `.credentials.json` | Auth credentials |
+| `projects\` | Per-project session transcripts |
+| `sessions\` | Session state |
+| `plugins\` | Installed plugins |
+| `skills\` | Installed/available skills |
+| `rules\` | Your global rule files (e.g. the `context7.md` rule you have) |
+| `plans\` | Saved plan-mode plans |
+| `jobs\` | Background job state |
+| `ide\` | IDE integration state |
+| `shell-snapshots\` | Captured shell environment snapshots |
+| `file-history\` | Edit history for rollback |
+| `cache\`, `downloads\`, `backups\`, `daemon\`, `session-env\` | Internal caches/working data |
+| `history.jsonl`, `daemon.log`, `.last-update-result.json`, `.last-cleanup` | Logs/bookkeeping |
+
+So in short: Claude Code doesn't touch anything else in your home directory — it's scoped to `~/.claude/` plus the single `~/.claude.json` config file.
+
 ## Rules for prompting
 - Be clear and specific
 - Give context (documentation, guidelines, libraries, ...)
@@ -49,7 +77,7 @@ Create a full-stack project with Express, React, Typescript and Bun.
 Use context7 for up-to-date docs.
 ```
 
-### Creating a momory file Claude.md
+### Creating a memory file Claude.md
 Here is a prompt example
 ```text
 Create the project memory file claude.md. Ask context7 to fetch up-to-date documentation.
@@ -184,6 +212,7 @@ If you want to start Claude with the previous context, type
 /skills to see all available skills
 /agents to manage sub-agents
 /voice to enable push-to-talk dictation
+/permissions command to list all deny, ask, allow rules
 
 /btw to ask a side question
 /rewind rewind changes in the current session to a previous checkpoint (a checkpoint is created after every change made by Claude Code).

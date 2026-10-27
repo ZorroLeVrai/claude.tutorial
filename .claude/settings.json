@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx ctx7@latest library \"Claude Code\" \"How to use /init to generate CLAUDE.md, memory file locations and load order, .claude/rules with paths frontmatter, imports\")",
+      "Bash(npx ctx7@latest docs /websites/code_claude \"How to use /init to generate CLAUDE.md, what to include and exclude, multiple CLAUDE.md files locations and load order and precedence, @ imports, .claude/rules files with paths frontmatter and when to use them\")",
+      "Bash(npx ctx7@latest docs /websites/code_claude \"CLAUDE.md locations managed policy user project local, how files are loaded walking up directory tree, subdirectory CLAUDE.md lazy loading, precedence, /init command behavior, size guidance 200 lines, rules paths frontmatter, user-level ~/.claude/rules\")"
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+**5. MCP servers** — skip unless you need external data (issue trackers, Figma, a live database). For local code/test/doc generation this is solving a different problem; Bash + your existing tools is simpler and faster.
