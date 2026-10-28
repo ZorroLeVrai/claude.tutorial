@@ -5,7 +5,7 @@ There are some security tooling that can make your claude usage more secure.
 | | Maintainer | Distribution |
 |---|---|---|
 | **`claude-security`** | **Anthropic** (author: Anthropic, support@anthropic.com) | Official `claude-plugins-official` marketplace |
-| **`security-guidance`** | **Anthropic employee** (David Dworken, dworken@anthropic.com) | Official `claude-plugins-official` marketplace |
+| **`security-guidance`** | **Anthropic employee** | Official `claude-plugins-official` marketplace |
 | **`hookify`** | **Anthropic** (author: Anthropic, support@anthropic.com) | Official `claude-plugins-official` marketplace |
 | **Prismor** | Independent open-source project/author (not Anthropic) | Standalone pip package, cross-agent |
 

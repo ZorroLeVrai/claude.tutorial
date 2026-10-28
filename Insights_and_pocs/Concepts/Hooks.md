@@ -244,6 +244,8 @@ Please note that `tool_name` on stdin is exactly what `matcher` is matched again
 
 Plus exit code `0`. (Exit code `2` also blocks the call, using stderr as the reason, without needing JSON — but the JSON form is clearer and what you'd use for `allow`/`ask` too.)
 
+In a Claude Code hook (PreToolUse, PostToolUse, etc.), Claude Code passes a JSON payload to your script via stdin.
+
 Minimal Python example:
 
 ```python
@@ -269,6 +271,24 @@ elif command.startswith("git push"):
     decide("ask", "Push requires explicit approval")
 else:
     sys.exit(0)  # no decision -> falls through to normal permissions.ask/allow/deny rules
+```
+
+Note that Hooks receive the current permission_mode in their input, so you can write a hook that makes different allow/deny/ask decisions depending on the active mode.
+
+Here is an example of how to retrieve the `permission_mode` in the script.
+```python
+#!/usr/bin/env python3
+import json
+import sys
+
+data = json.load(sys.stdin)
+permission_mode = data.get("permission_mode")  # "default", "acceptEdits", "plan", "bypassPermissions"
+tool_name = data.get("tool_name")
+tool_input = data.get("tool_input", {})
+
+if permission_mode == "plan":
+  do_stuff()
+sys.exit(0)
 ```
 
 ### Key points

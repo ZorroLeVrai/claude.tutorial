@@ -1,2 +1,6 @@
 Claude_Cheat_Sheet.jpg
-.vscode/   
+.vscode/
+.claude/
+settings.json
+settings copy.json
+!Insights_and_pocs/Concepts/Security_settings_examples/settings.json
