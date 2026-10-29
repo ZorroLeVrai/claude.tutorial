@@ -140,3 +140,58 @@ Limits to keep in mind:
 - ❌ Only as good as your regexes: easy to bypass (`rm -fr`, `rm -r -f`, variable indirection, scripts that call `rm`), no semantic understanding
 - ❌ Nothing ships enabled: you start with zero protection until you write rules
 - ❌ Project-scoped and Claude-Code-only, so no cross-agent policy like Prismor
+
+## Using a Docker Sandbox
+
+[!WARNING]
+Unforunately as of 2026-10-30 there is a bug on the Windows version that makes Docker Sanbox unusable.
+
+A sandbox can be used to isolate an AI agent.  
+You can install one from the Docker site.  
+https://docs.docker.com/ai/sandboxes/install/#windows
+
+Once installed you can check your installation with
+```bash
+sbx diagnose
+```
+
+In case of error with one of the daemons.
+The daemon has to be started explicitly
+```bash
+sbx daemon start
+```
+
+At first install, you have to choose your sandbox network policy (balanced recommended)
+```bash
+sbx policy init balanced
+```
+
+If you want to allow traffic outside of the sandbox, you can use
+```bash
+sbx policy allow network <host>:<port>
+```
+
+To login for the first time
+```bash
+sbx login
+```
+
+Once logged in, to run claude just type the following command in the terminal in the directory you want to start Claude.
+```bash
+sbx run claude
+```
+
+Here are useful variations
+```bash
+# Mount a specific folder instead of the current directory
+sbx run claude D:\path\to\project
+
+# Mount a second folder read-only (e.g. docs you want it to reference but not edit)
+sbx run claude . D:\path\to\docs:ro
+
+# Create it but don't attach yet (just print the sandbox ID)
+sbx run claude -d
+
+# Pass args straight through to Claude Code itself
+sbx run claude -- --continue
+```
